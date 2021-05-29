@@ -35,23 +35,18 @@ export const assets = [
 
 const Darkroom = () => {
   const v1 = useSharedValue(1);
-  const v2 = useSharedValue(0.9);
-  const v3 = useSharedValue(0.8);
-  const v4 = useSharedValue(0.7);
-  const v5 = useSharedValue(0.6);
-  const v6 = useSharedValue(0.5);
-  const v7 = useSharedValue(0.4);
-  const v8 = useSharedValue(0.3);
-  const v9 = useSharedValue(0.2);
-  const v10 = useSharedValue(0.1);
-  const v11 = useSharedValue(0);
+  const v2 = useSharedValue(0.8);
+  const v3 = useSharedValue(0.6);
+  const v4 = useSharedValue(0.4);
+  const v5 = useSharedValue(0.2);
+  const v6 = useSharedValue(0);
   
 
-  const STEPS = 10;
+  const STEPS = 5;
   const STEP = WIDTH / STEPS;
   const path = useDerivedValue(() =>
     curveLines(
-      [v1, v2, v3, v4, v5,v6,v7,v8,v9,v10,v11].map((value, i) => ({
+      [v1, v2, v3, v4, v5,v6].map((value, i) => ({
         x: PADDING + STEP * i,
         y: value.value * HEIGHT,
       })),
@@ -61,7 +56,7 @@ const Darkroom = () => {
   );
   return (
     <SafeAreaView style={styles.container}>
-      <Picture source={assets[2]} path={path} />
+      <Picture source={assets[4]} path={path} />
       <View>
         <Controls path={path} />
         <View style={styles.cursors}>
@@ -71,11 +66,6 @@ const Darkroom = () => {
           <Cursor value={v4} />
           <Cursor value={v5} />
           <Cursor value={v6} />
-          <Cursor value={v7} />
-          <Cursor value={v8} />
-          <Cursor value={v9} />
-          <Cursor value={v10} />
-          <Cursor value={v11} />
         </View>
       </View>
     </SafeAreaView>
